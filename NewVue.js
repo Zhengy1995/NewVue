@@ -66,7 +66,6 @@ class MyVue extends NewVue {
 	}
 
 	$initEvent() {
-		const $this = this
 		$A(`${this.$el} [n-on]`).forEach(dom => {
 			const[event, callback] = dom.getAttribute('n-on').split(',')
 			dom.addEventListener(event, e => this[callback](e))
