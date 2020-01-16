@@ -115,4 +115,4 @@ class MyVue extends NewVue {
 	}
 }
 
-export default NewVue
+export default MyVue
