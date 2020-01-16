@@ -60,15 +60,18 @@ class MyVue extends NewVue {
 		this.$data = data()
 		this.$mixin(data(), true)
 		this.$mixin(methods)
+		this.$initMVVM()
 		this.$initEvent()
 		this.$mounted()
-		this.$initMVVM()
 	}
 
 	$initEvent() {
+		const $this = this
 		$A(`${this.$el} [n-on]`).forEach(dom => {
 			const[event, callback] = dom.getAttribute('n-on').split(',')
-			dom[`on${event}`] = this[callback]
+			dom.addEventListener(event, function(e) {
+				$this[callback].call($this, e)
+			})
 		})
 	}
 
@@ -83,9 +86,9 @@ class MyVue extends NewVue {
 		const $this = this
 		$A(`${this.$el} [n-model]`).forEach(form => {
 			const key = form.getAttribute('n-model')
-			form.oninput = function() {
+			form.addEventListener('input', function() {
 				$this.$data[key] = $this[key] = this.value
-			}
+			})
 		})
 
 	}
