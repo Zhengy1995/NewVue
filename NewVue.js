@@ -114,3 +114,5 @@ class MyVue extends NewVue {
 		this.$event = event ? this.$event.filter(evt => !(evt.event == event && (!callback || callback == evt.callback))) : []
 	}
 }
+
+export default NewVue
