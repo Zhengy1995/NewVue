@@ -17,18 +17,18 @@
 import NewVue from './NewVue'
 new PersonVue({
     el: '#index',
-    data: {
-        data: {
+    data() {
+        return {
             example: '这是一个示例',
             name: '测试'
-        },
-        mounted() {
-            console.log('测试')
-        },
-        method: {
-            changeText() {
-                this.example = '你点击了button标签，触发了该事件'
-            }
+        }
+    },
+    mounted() {
+        console.log('测试')
+    },
+    methods: {
+        changeText() {
+            this.example = '你点击了button标签，触发了该事件'
         }
     }
 })
