@@ -9,6 +9,7 @@
 
 #HTML部分
 <div id='index'>
+    <!-- 现有指令：n-model,n-bind -->
     <input type="text" n-model='name'/>
     <span n-bind='example'>{{example}}</span> <button n-on='click,changeText'>点击切换文字</button>
 </div>
